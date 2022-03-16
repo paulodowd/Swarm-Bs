@@ -12,7 +12,7 @@
 
 ## Summary
 
-This board is a revised version of the 3Pi_IRComm board. Rather than updating the 3Pi_IRComm repository, it seemed like this board was different enough to have it's own - this way the simpler 3Pi_IRComm board design can persist.  However, this board can be taken as a better design, and unwanted components simply left unpopulated.  
+This board is a revised version of the 3Pi_IRComm board. Rather than updating the 3Pi_IRComm repository, it seemed like this board was different enough to have it's own - this way the simpler 3Pi_IRComm board design can persist.  However, this board can be taken as a better design, and unwanted components simply left unpopulated.  The fabrication cost of the PCB is essentially the same.
 
 The board has been revised to include more functionality, especially for human interaction.  The board is intended to now be suitable for both the Pololu 3Pi+ robot and to fit against a wall mounted display.  
 
