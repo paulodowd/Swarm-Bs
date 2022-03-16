@@ -13,4 +13,9 @@ The Arduino Nano has been used (instead of the pro mini) because it has a built-
 Rather than updating the 3Pi_IRComm repository, it seemed like this board was different enough to have it's own - this way the simpler 3Pi_IRComm board design can persist.
 
 
+## Important Considerations
+
+
+## Bill of Materials (BOM)
+
 
