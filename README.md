@@ -2,6 +2,14 @@
 
 ## Features
 
+- Can be considered a general purpose I2C extension board to provide local infra-red (IR) communication.
+- IR Serial transmission at 4800 Baud.
+- Transmit/receive upto 29 bytes (currently, extensible).
+- Range can be reduced/set with a trimmer potentiometer.
+- Message corruption detection implemented with a CRC checksum.
+- Designed to conveniently fit to an expansion header of the Pololu 3Pi+ mobile robot.
+
+
 ## Summary
 
 This board is a revised version of the 3Pi_IRComm board. Rather than updating the 3Pi_IRComm repository, it seemed like this board was different enough to have it's own - this way the simpler 3Pi_IRComm board design can persist.  However, this board can be taken as a better design, and unwanted components simply left unpopulated.  
