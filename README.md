@@ -3,6 +3,7 @@
 ## Features
 
 - Can be considered a general purpose I2C extension board to provide local infra-red (IR) communication.
+- Can also be used stand-alone (example code to come).
 - IR Serial transmission at 4800 Baud.
 - Transmit/receive upto 28 bytes (currently, extensible).
 - Range can be reduced/set with a trimmer potentiometer.
