@@ -5,6 +5,8 @@ This board is a revised version of the 3Pi_IRComm board.  It uses an Arduino Nan
 - 3 Potentiometers
 - 1 Button
 - 1 RGB LED
+- Polarity protection diode
+- Some necessary resistors
 
 The Arduino Nano has been used (instead of the pro mini) because it has a built-in USB connector and so is more accessible to program.  
 
