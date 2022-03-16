@@ -1,4 +1,4 @@
-# Swarm-Bs
+# Swarm-Bs (work in progress)
 
 This board is a revised version of the 3Pi_IRComm board.  It uses an Arduino Nano and has extra components:
 - LDR
