@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source "C:\\Users\\ke18164\\OneDrive - University of Bristol\\Documents\\PCB_Designs\\Swarm-B\\Swarm-B.sch")
-    (date "15/03/2022 09:54:31")
+    (source "C:\\Users\\ke18164\\OneDrive - University of Bristol\\GitRepositories\\Swarm-Bs\\pcb\\Swarm-B\\Swarm-B.sch")
+    (date "13/04/2022 11:55:30")
     (tool "Eeschema (5.1.4)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -24,7 +24,7 @@
       (tstamp 622BEDE5))
     (comp (ref U1)
       (value 74LS32)
-      (footprint Package_DIP:DIP-16_W7.62mm_Socket)
+      (footprint Package_DIP:DIP-14_W7.62mm_Socket)
       (datasheet http://www.ti.com/lit/gpn/sn74LS32)
       (libsource (lib 74xx) (part 74LS32) (description "Quad 2-input OR"))
       (sheetpath (names /) (tstamps /))
@@ -113,7 +113,7 @@
       (tstamp 622E8999))
     (comp (ref R1)
       (value 15R_IRLED)
-      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal)
+      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal)
       (fields
         (field (name Field4) " "))
       (libsource (lib SparkFun-Resistors) (part RESISTOR0402) (description "Generic Resistor Package"))
@@ -159,7 +159,7 @@
       (tstamp 624622A0))
     (comp (ref R6)
       (value 10K_LDR)
-      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal)
+      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal)
       (fields
         (field (name Field4) " "))
       (libsource (lib SparkFun-Resistors) (part RESISTOR0402) (description "Generic Resistor Package"))
@@ -167,7 +167,7 @@
       (tstamp 6250BCAE))
     (comp (ref R2)
       (value 155R_R)
-      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal)
+      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal)
       (fields
         (field (name Field4) " "))
       (libsource (lib SparkFun-Resistors) (part RESISTOR0402) (description "Generic Resistor Package"))
@@ -175,7 +175,7 @@
       (tstamp 622F7FC7))
     (comp (ref R3)
       (value 90R_G)
-      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal)
+      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal)
       (fields
         (field (name Field4) " "))
       (libsource (lib SparkFun-Resistors) (part RESISTOR0402) (description "Generic Resistor Package"))
@@ -183,7 +183,7 @@
       (tstamp 622F755B))
     (comp (ref R4)
       (value 85R_B)
-      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal)
+      (footprint Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal)
       (fields
         (field (name Field4) " "))
       (libsource (lib SparkFun-Resistors) (part RESISTOR0402) (description "Generic Resistor Package"))
