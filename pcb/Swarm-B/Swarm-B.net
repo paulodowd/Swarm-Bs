@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "C:\\Users\\ke18164\\OneDrive - University of Bristol\\GitRepositories\\Swarm-Bs\\pcb\\Swarm-B\\Swarm-B.sch")
-    (date "13/04/2022 11:55:30")
+    (date "01/06/2022 14:58:14")
     (tool "Eeschema (5.1.4)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -73,7 +73,7 @@
       (tstamp 622D51A2))
     (comp (ref VR1)
       (value 10K_Pot_B)
-      (footprint Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal)
+      (footprint Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical)
       (fields
         (field (name Field4) RES-09730))
       (libsource (lib SparkFun-Resistors) (part TRIMPOT-PTH-10MM-KNOB-1_2W-10%) (description "Trimming Potentiometer (Trimpot) Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor. \"Trimpots\" are a subset of potentiometers, usually intended for \"set-and-forget\" applications. They're often more delicate than standard potentiometers - rated for fewer turns. <h4>Variants</h4><h5>PTH-KNOB - PTH Trimpot w/ finger-adjustable knob</h5><ul><li><a href=\"https://www.sparkfun.com/products/9806\">Trimpot 10K with Knob</a> (COM-09806)</li><li><a href=\"http://www.sparkfun.com/datasheets/Components/General/TSR-3386.pdf\">Datasheet</a></ul><h5>SMD-3MM-CLOSED-FRAME - SMD 3mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/12779\">EasyDriver - Stepper Motor Driver</a></li><li><a href=\"http://www.bitechnologies.com/pdfs/22.pdf\">Datasheet</a> (22AR10KTR)</li></ul><h5>SMD-5MM - SMD 5mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13613\">IOIO-OTG - V2.2</a></li><li><a href=\"http://www.vishay.com/docs/51008/ts53.pdf\">Datasheet</a> (TS53YL502MR10)</li></ul><h5>SMD-3MM-1/10W-25% - 3mm Square Open-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13899\">SparkFun Shapeoko</a></li><li><a href=\"http://www.bourns.com/docs/Product-Datasheets/TC33.pdf\">Datasheet</a> (TC33X-2-103E)</li></ul>"))
@@ -81,7 +81,7 @@
       (tstamp 622D7EB6))
     (comp (ref VR3)
       (value 10K_Pot_C)
-      (footprint Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal)
+      (footprint Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical)
       (fields
         (field (name Field4) RES-09730))
       (libsource (lib SparkFun-Resistors) (part TRIMPOT-PTH-10MM-KNOB-1_2W-10%) (description "Trimming Potentiometer (Trimpot) Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor. \"Trimpots\" are a subset of potentiometers, usually intended for \"set-and-forget\" applications. They're often more delicate than standard potentiometers - rated for fewer turns. <h4>Variants</h4><h5>PTH-KNOB - PTH Trimpot w/ finger-adjustable knob</h5><ul><li><a href=\"https://www.sparkfun.com/products/9806\">Trimpot 10K with Knob</a> (COM-09806)</li><li><a href=\"http://www.sparkfun.com/datasheets/Components/General/TSR-3386.pdf\">Datasheet</a></ul><h5>SMD-3MM-CLOSED-FRAME - SMD 3mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/12779\">EasyDriver - Stepper Motor Driver</a></li><li><a href=\"http://www.bitechnologies.com/pdfs/22.pdf\">Datasheet</a> (22AR10KTR)</li></ul><h5>SMD-5MM - SMD 5mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13613\">IOIO-OTG - V2.2</a></li><li><a href=\"http://www.vishay.com/docs/51008/ts53.pdf\">Datasheet</a> (TS53YL502MR10)</li></ul><h5>SMD-3MM-1/10W-25% - 3mm Square Open-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13899\">SparkFun Shapeoko</a></li><li><a href=\"http://www.bourns.com/docs/Product-Datasheets/TC33.pdf\">Datasheet</a> (TC33X-2-103E)</li></ul>"))
@@ -89,7 +89,7 @@
       (tstamp 622E4F0E))
     (comp (ref VR2)
       (value 10K_Pot_A)
-      (footprint Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal)
+      (footprint Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical)
       (fields
         (field (name Field4) RES-09730))
       (libsource (lib SparkFun-Resistors) (part TRIMPOT-PTH-10MM-KNOB-1_2W-10%) (description "Trimming Potentiometer (Trimpot) Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor. \"Trimpots\" are a subset of potentiometers, usually intended for \"set-and-forget\" applications. They're often more delicate than standard potentiometers - rated for fewer turns. <h4>Variants</h4><h5>PTH-KNOB - PTH Trimpot w/ finger-adjustable knob</h5><ul><li><a href=\"https://www.sparkfun.com/products/9806\">Trimpot 10K with Knob</a> (COM-09806)</li><li><a href=\"http://www.sparkfun.com/datasheets/Components/General/TSR-3386.pdf\">Datasheet</a></ul><h5>SMD-3MM-CLOSED-FRAME - SMD 3mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/12779\">EasyDriver - Stepper Motor Driver</a></li><li><a href=\"http://www.bitechnologies.com/pdfs/22.pdf\">Datasheet</a> (22AR10KTR)</li></ul><h5>SMD-5MM - SMD 5mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13613\">IOIO-OTG - V2.2</a></li><li><a href=\"http://www.vishay.com/docs/51008/ts53.pdf\">Datasheet</a> (TS53YL502MR10)</li></ul><h5>SMD-3MM-1/10W-25% - 3mm Square Open-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13899\">SparkFun Shapeoko</a></li><li><a href=\"http://www.bourns.com/docs/Product-Datasheets/TC33.pdf\">Datasheet</a> (TC33X-2-103E)</li></ul>"))
@@ -121,7 +121,7 @@
       (tstamp 622E9B34))
     (comp (ref VR4)
       (value 1K_Pot_IRLED)
-      (footprint Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal)
+      (footprint Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical)
       (fields
         (field (name Field4) RES-09730))
       (libsource (lib SparkFun-Resistors) (part TRIMPOT-PTH-10MM-KNOB-1_2W-10%) (description "Trimming Potentiometer (Trimpot) Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor. \"Trimpots\" are a subset of potentiometers, usually intended for \"set-and-forget\" applications. They're often more delicate than standard potentiometers - rated for fewer turns. <h4>Variants</h4><h5>PTH-KNOB - PTH Trimpot w/ finger-adjustable knob</h5><ul><li><a href=\"https://www.sparkfun.com/products/9806\">Trimpot 10K with Knob</a> (COM-09806)</li><li><a href=\"http://www.sparkfun.com/datasheets/Components/General/TSR-3386.pdf\">Datasheet</a></ul><h5>SMD-3MM-CLOSED-FRAME - SMD 3mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/12779\">EasyDriver - Stepper Motor Driver</a></li><li><a href=\"http://www.bitechnologies.com/pdfs/22.pdf\">Datasheet</a> (22AR10KTR)</li></ul><h5>SMD-5MM - SMD 5mm Square Closed-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13613\">IOIO-OTG - V2.2</a></li><li><a href=\"http://www.vishay.com/docs/51008/ts53.pdf\">Datasheet</a> (TS53YL502MR10)</li></ul><h5>SMD-3MM-1/10W-25% - 3mm Square Open-Frame Trimpot</h5><ul><li>Used on e.g. <a href=\"https://www.sparkfun.com/products/13899\">SparkFun Shapeoko</a></li><li><a href=\"http://www.bourns.com/docs/Product-Datasheets/TC33.pdf\">Datasheet</a> (TC33X-2-103E)</li></ul>"))

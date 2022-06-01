@@ -152,7 +152,7 @@ U 1 1 622D7EB6
 P 9150 3850
 F 0 "VR1" H 9083 3945 45  0000 R CNN
 F 1 "10K_Pot_B" H 9083 3861 45  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal" V 9000 3850 20  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical" V 9000 3850 20  0001 C CNN
 F 3 "" H 9150 3850 60  0001 C CNN
 F 4 "RES-09730" H 9083 3766 60  0000 R CNN "Field4"
 	1    9150 3850
@@ -164,7 +164,7 @@ U 1 1 622E4F0E
 P 9750 3850
 F 0 "VR3" H 9683 3945 45  0000 R CNN
 F 1 "10K_Pot_C" H 9683 3861 45  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal" V 9600 3850 20  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical" V 9600 3850 20  0001 C CNN
 F 3 "" H 9750 3850 60  0001 C CNN
 F 4 "RES-09730" H 9683 3766 60  0000 R CNN "Field4"
 	1    9750 3850
@@ -176,7 +176,7 @@ U 1 1 622E5945
 P 8550 3850
 F 0 "VR2" H 8483 3945 45  0000 R CNN
 F 1 "10K_Pot_A" H 8483 3861 45  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal" V 8400 3850 20  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical" V 8400 3850 20  0001 C CNN
 F 3 "" H 8550 3850 60  0001 C CNN
 F 4 "RES-09730" H 8483 3766 60  0000 R CNN "Field4"
 	1    8550 3850
@@ -304,7 +304,7 @@ U 1 1 6232F353
 P 1900 3150
 F 0 "VR4" H 1833 3245 45  0000 R CNN
 F 1 "1K_Pot_IRLED" H 1833 3161 45  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal" V 1750 3150 20  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical" V 1750 3150 20  0001 C CNN
 F 3 "" H 1900 3150 60  0001 C CNN
 F 4 "RES-09730" H 1833 3066 60  0000 R CNN "Field4"
 	1    1900 3150
