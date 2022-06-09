@@ -149,14 +149,14 @@ void setRGB( int r, int g, int b ) {
   if( g == 0 ) {
     analogWrite( LED_G, 0 );
   } else {
-    digitalWrite( LED_G, 128 );
+    analogWrite( LED_G, 128 );
   }
 
 
   if( b == 0 ) {
     analogWrite( LED_B, 0 );
   } else {
-    digitalWrite( LED_B, 128 );
+    analogWrite( LED_B, 128 );
   }
   
 }
