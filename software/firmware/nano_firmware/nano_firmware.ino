@@ -8,7 +8,7 @@
 
 boolean LED;      // debug LED
 unsigned long ts; // general time stamp, timeout for
-                  // debug LED.
+// debug LED.
 
 #define POT_A A0
 #define POT_B A1
@@ -23,8 +23,8 @@ int state = STATE_IR_TX_ON;
 #define MAX_MSG 32
 static char tx_buf[MAX_MSG];  // buffer for IR out (serial)
 static char rx_buf[MAX_MSG];  // buffer for IR in  (serial)
-static char rx_msg[MAX_MSG];  // holding buffer for msg down 
-                              // to Master over i2c
+static char rx_msg[MAX_MSG];  // holding buffer for msg down
+// to Master over i2c
 int rx_count;
 
 // 38Khz signal generated on
@@ -33,7 +33,7 @@ int rx_count;
 
 unsigned long msg_ttl; // msg time to live
 #define TTL 1000       // keep a message for 1 second
-                       // then delete. 
+// then delete.
 
 unsigned long tx_ts;    // transmit time-stamp
 unsigned long tx_delay; // delay between tx
@@ -57,7 +57,7 @@ void setup() {
 
   // Debug led
   pinMode(13, OUTPUT);
-  
+
   // RGB LED
   pinMode( LED_R, OUTPUT );
   pinMode( LED_G, OUTPUT );
@@ -67,13 +67,13 @@ void setup() {
   pinMode( POT_A, INPUT );
   pinMode( POT_B, INPUT );
   pinMode( POT_C, INPUT );
-  
+
   // Set message buffers to invalid (empty) state
   memset( tx_buf, 0, sizeof( tx_buf ));
   memset( rx_buf, 0, sizeof( rx_buf ));
   memset( rx_msg, 0, sizeof( rx_msg ));
 
-  
+
 
   // Setup Timer 2 to help generate a 38khz signal.
   setupTimer2();
@@ -87,7 +87,7 @@ void setup() {
   // serial to transmit strings over IR by
   // modulating it with the 38khz carrier.
   // The IR demodulator chip can support
-  // baud up to 4800, but other variants 
+  // baud up to 4800, but other variants
   // might not.
   Serial.begin(4800);
   Serial.setTimeout(500);
@@ -104,9 +104,9 @@ void setup() {
 
 
 // Experiment to see if reading the LSB
-// of an analog read can generate a 
+// of an analog read can generate a
 // useful random seed.  Nothing connected
-// to A0.  I think the LSB fluctuates 
+// to A0.  I think the LSB fluctuates
 // randomly(?)
 void initRandomSeed() {
   pinMode(A0, INPUT);
@@ -124,7 +124,7 @@ void initRandomSeed() {
 // and listen procedure because we
 // can't do both at the same time.
 // https://lucidar.me/en/serialib/most-used-baud-rates-table/
-// We are using 4800 baud, which is 
+// We are using 4800 baud, which is
 // 4800 bits per second.
 // 1.042ms per byte.
 // So we space transmission by 35ms
@@ -140,25 +140,25 @@ void setTXDelay() {
 }
 
 void setRGB( int r, int g, int b ) {
-  if( r == 0 ) {
+  if ( r == 0 ) {
     digitalWrite( LED_R, LOW );
   } else {
     digitalWrite( LED_R, HIGH );
   }
 
-  if( g == 0 ) {
+  if ( g == 0 ) {
     analogWrite( LED_G, 0 );
   } else {
-    analogWrite( LED_G, 128 );
+    analogWrite( LED_G, g );
   }
 
 
-  if( b == 0 ) {
+  if ( b == 0 ) {
     analogWrite( LED_B, 0 );
   } else {
-    analogWrite( LED_B, 128 );
+    analogWrite( LED_B, b );
   }
-  
+
 }
 
 // This ISR simply toggles the state of
@@ -175,7 +175,7 @@ void setupTimer2() {
 
   // Termporarily stop interupts
   cli();
-  
+
   // Setup Timer 2 to fire ISR every 38khz
   // Enable CTC mode
   TCCR2A = 0;
@@ -220,7 +220,7 @@ byte CRC( String in_string ) {
 // Over i2c to Master
 // Sends a string of the latest message received from
 // other robots.
-// If the buffer is empty, a ! character is sent. 
+// If the buffer is empty, a ! character is sent.
 // Note, a correct message should also end in !
 void reportLastMessage() {
 
@@ -239,6 +239,9 @@ void reportLastMessage() {
 // * to indicate the start of a message
 // @ to indicate a checksum value following
 void newMessageToSend( int len ) {
+
+  char buf[MAX_MSG];
+
   //Serial.println(len);
   //digitalWrite(13, HIGH);
   int count = 0;
@@ -248,32 +251,105 @@ void newMessageToSend( int len ) {
   state = STATE_IR_TX_OFF;
 
   // Clear tx buffer
-  memset( tx_buf, 0, sizeof( tx_buf ) );
+  memset( buf, 0, sizeof( buf ) );
 
   // set first character as our message
   // start byte
-  tx_buf[count++] = '*';
+  buf[count++] = '*';
 
   // Should we add a timeout here?
   // Receive up until buffer -1
   while ( Wire.available()  ) {
     char c = Wire.read();
-    tx_buf[count] = c;
+    buf[count] = c;
     count++;
   }
 
-  // Add crc
-  byte cs;
-  int i;
+  // If it is a malformed message from the robot,
+  // or the ! symbol
+  // we clear the tx_buf and so stop sending messages
+  if ( count <= 1 || buf[1] == '!' ) {
+    //Serial.println(" Cleared");
+    memset( tx_buf, 0, sizeof( tx_buf ) );
 
-  cs = 0;
-  for ( i = 0;  i < count; i++ ) {
-    cs = cs ^ tx_buf[i];
+    // If we received RGB,n,n,n then we attempt to parse and set the RGB LED
+  } else if ( count >= 4 ) {
+
+
+    if ( buf[1] == 'R' && buf[2] == 'G' && buf[3] == 'B' ) {
+
+      
+      // Get R G and B values
+      char * substrings[5];
+      char * ptr;
+      byte index = 0;
+      ptr = strtok( buf, ",");
+      while ( ptr != NULL && index <= 4 ) {
+        substrings[index] = ptr;
+
+        index++;
+        ptr = strtok( NULL, ",");
+      }
+
+      // found 4 substrings? [rgb,n,n,n]
+      if ( index == 4 ) {
+        int r = atoi( substrings[1] );
+        int g = atoi( substrings[2] );
+        int b = atoi( substrings[3] );
+        setRGB( r, g, b );
+      }
+
+    } else {
+      // copy new tx message into correct
+      // buffer.
+      memset( tx_buf, 0, sizeof( tx_buf ) );
+      for ( int i = 0; i < count; i++ ) {
+        tx_buf[i] = buf[i];
+      }
+
+      // Add crc
+      byte cs;
+      int i;
+
+      cs = 0;
+      for ( i = 0;  i < count; i++ ) {
+        cs = cs ^ tx_buf[i];
+      }
+      cs &= 0xff;
+
+      tx_buf[count++] = '@';
+      tx_buf[count++] = cs;
+      //Serial.println("Set");
+    }
+
+  } else {
+    // copy new tx message into correct
+    // buffer.
+    memset( tx_buf, 0, sizeof( tx_buf ) );
+    for ( int i = 0; i < count; i++ ) {
+      tx_buf[i] = buf[i];
+    }
+
+    // Add crc
+    byte cs;
+    int i;
+
+    cs = 0;
+    for ( i = 0;  i < count; i++ ) {
+      cs = cs ^ tx_buf[i];
+    }
+    cs &= 0xff;
+
+    tx_buf[count++] = '@';
+    tx_buf[count++] = cs;
+    //Serial.println("Set");
   }
-  cs &= 0xff;
 
-  tx_buf[count++] = '@';
-  tx_buf[count++] = cs;
+
+
+
+
+
 
 
   //Serial.println( count );
@@ -286,7 +362,7 @@ void newMessageToSend( int len ) {
 
 // The arduino pro mini has a parallel serial
 // interface,meaning with IR it can receive
-// it's own tranmission. There, we access the 
+// it's own tranmission. There, we access the
 // UART register to disable RX functionality.
 // When we re-enable it, this has the beneficial
 // side-effect of clearing the input buffer.
@@ -301,7 +377,7 @@ void disableRX() {
 // Re-enable the serial port RX hardware.
 void enableRX() {
 
-  
+
   cli();
   UCSR0A &= ~(1 << FE0);
   UCSR0A &= ~(1 << DOR0);
@@ -322,7 +398,7 @@ void resetRxBuf() {
 
 void loop() {
 
- 
+
 
   // Toggle whether we are broadcasting
   // or listening for IR messages
@@ -342,22 +418,22 @@ void loop() {
 
     // If we have not received a message from
     // the Master over i2c, do nothing.
-    if ( tx_buf[0] == 0 ) {
+    if ( strlen(tx_buf) == 0 ) {
       // don't send, empty buffer.
-      
+
     } else { // Message from Master to send.
 
       // We have a problem where we pick up
       // our own reflected transmission.
       disableRX();
-      //enableTX();
+
 
       // Using Serial.print transmits over
       // IR.  Serial TX is modulated with
-      // the 38Khz carrier in hardware. 
+      // the 38Khz carrier in hardware.
       Serial.println( tx_buf );
       Serial.flush(); // wait for send to complete
-      //disableTX();
+
 
       // With TX finished, we can receive again
       // and not get our own transmission.
@@ -377,9 +453,9 @@ void loop() {
   if ( millis() - ts > 100 ) {
     ts = millis();
     digitalWrite( 13, LOW );
-    setRGB( 1, 0, 0 );
-    //analogWrite(LED_R, 255 );
-    //analogWrite(LED_G, 0);
+    //setRGB( 1, 0, 0 );
+
+
     // Debug
     //Serial.print("last message: ");
     //Serial.print( rx_msg );
@@ -389,7 +465,7 @@ void loop() {
 
 
   // See if we have received over IR to
-  // process. 
+  // process.
   while ( Serial.available() && !PROCESS_MSG ) {
 
     // If we find a newline, we flag we have
@@ -399,8 +475,8 @@ void loop() {
 
 
     // Note that, it might seem like rx_count will
-    // exceed the buffer. The next check should 
-    // catch this, and cause the buffer to be 
+    // exceed the buffer. The next check should
+    // catch this, and cause the buffer to be
     // processed.  We don't zero rx_count on each
     // call of loop() because we may only have a
     // few characters in the Serial buffer.  So we
@@ -419,14 +495,14 @@ void loop() {
   if ( PROCESS_MSG ) {
 
     // Debug
-    //Serial.print("got "); Serial.print(rx_buf); Serial.print(":"); Serial.println(rx_count);
+    Serial.print("got "); Serial.print(rx_buf); Serial.print(":"); Serial.println(rx_count);
 
     // Invalid conditions:
     if ( rx_count <= 0 || rx_buf[0] == 0 ) {
       // bad read.
       //Serial.println("bad serial");
 
-     
+
     } else {  // Valid rx buf
 
       // Check for start byte
@@ -442,8 +518,9 @@ void loop() {
       }
 
       // Message too short or bad
-      // e.g. a useless message would be:
+      // e.g. a good message would be:
       //      *abcdef@a  (start,message,CRC token, CRC value)
+      //      a useless message would be:
       //      minimum (absurd) message would be *@_
       //      min message length = 3
       // if start < 0, then no * symbol was found
@@ -468,7 +545,7 @@ void loop() {
         if ( last > start && last < (rx_count - 1) ) {
           char buf[rx_count];
           int b = 0;  // count how many bytes
-          
+
           // we copy.
           for ( int i = start; i < last; i++ ) {
             buf[b] = rx_buf[i];
@@ -501,22 +578,22 @@ void loop() {
               digitalWrite(13, HIGH );
               //analogWrite(LED_R, 0 );
               //analogWrite(LED_G, 255);
-              setRGB( 0, 1, 0 );
+              //setRGB( 0, 1, 0 );
 
               // Make sure where we will store this
               // received message is clear.
               memset( rx_msg, 0, sizeof( rx_msg ));
-              
+
               // Copy message across, ignoring the *
               for ( int i = 0; i < b - 1; i++ ) {
                 rx_msg[i] = buf[i + 1];
               }
 
               // Add a ! to the message, which will be
-              // used when later sending down I2C to 
+              // used when later sending down I2C to
               // the Master to indicate the end of the
               // string.
-              rx_msg[b-1] = '!';
+              rx_msg[b - 1] = '!';
 
               // Reset TTL timestamp, so this message
               // will only exist temporarily.
@@ -533,7 +610,7 @@ void loop() {
       }
     }
 
-    // reset receive 
+    // reset receive
     resetRxBuf();
 
   }
