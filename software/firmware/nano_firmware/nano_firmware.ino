@@ -127,12 +127,12 @@ void initRandomSeed() {
 // We are using 4800 baud, which is
 // 4800 bits per second.
 // 1.042ms per byte.
-// So we space transmission by 35ms
+// So we space transmission by 64ms
 // to allow for receipt, and pad/vary
 // by upto 50ms(?)
 void setTXDelay() {
   float t = (float)random(0, 50);
-  t += 35;
+  t += 64;
   // Insert random delay to help
   // break up synchronous tranmission
   // between robots.
@@ -495,7 +495,7 @@ void loop() {
   if ( PROCESS_MSG ) {
 
     // Debug
-    Serial.print("got "); Serial.print(rx_buf); Serial.print(":"); Serial.println(rx_count);
+    //Serial.print("got "); Serial.print(rx_buf); Serial.print(":"); Serial.println(rx_count);
 
     // Invalid conditions:
     if ( rx_count <= 0 || rx_buf[0] == 0 ) {
